@@ -63,12 +63,12 @@ class VectorQuantizer2(nn.Module):
         f_no_grad = f_BCL.detach()
         # print("self.training:",self.training)
         # print("dist.initialized():", dist.initialized())
-        
+
         f_rest = f_no_grad.clone()
         f_hat = torch.zeros_like(f_rest)
 
         # with torch.cuda.amp.autocast(enabled=False):
-        with torch.amp.autocast(enabled=False, device_type='cuda:0'):
+        with torch.amp.autocast(enabled=False, device_type='cuda'):
             mean_vq_loss: torch.Tensor = 0.0
             vocab_hit_V = torch.zeros(self.vocab_size, dtype=torch.float, device=f_BCL.device)
             SN = len(self.v_patch_nums)

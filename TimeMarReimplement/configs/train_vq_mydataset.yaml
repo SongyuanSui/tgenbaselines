@@ -4,7 +4,7 @@ load_dir:
 load_ver:
 load_v_num:
 
-output_dir: ../output
+output_dir: ./output
 devices: [0]
 
 model_name: DualVQVAE
@@ -21,7 +21,7 @@ share_quant_resi: 0
 default_qresi_counts: 0
 
 # 对 128 长度更稳的多尺度 patch 设置
-v_patch_nums: [1, 2, 4, 8, 16]
+v_patch_nums: [1, 2, 4, 8, 16, 32]
 in_channels: 1
 test_mode: False
 ch_mult: [1, 1, 2]
@@ -36,7 +36,7 @@ dataloader:
   target: Utils.npy_datasets.PreSplitNPYDataset
   params:
     name: mydataset
-    data_root: ../../datasets/synthetic_u
+    data_root: ../datasets/synthetic_u
     window: 128
     save2npy: True
     neg_one_to_one: True

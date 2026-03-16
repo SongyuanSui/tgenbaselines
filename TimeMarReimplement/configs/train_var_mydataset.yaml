@@ -3,7 +3,7 @@ seed: 1234
 load_ver: '0'
 load_v_num:
 
-output_dir: ../output
+output_dir: ./output
 devices: [0]
 
 resume: False
@@ -24,14 +24,14 @@ dataloader:
   target: Utils.npy_datasets.PreSplitNPYDataset
   params:
     name: mydataset
-    data_root: ../../datasets/synthetic_u
+    data_root: ../datasets/synthetic_u
     window: 128
     save2npy: True
     neg_one_to_one: True
     seed: 123
 
 batch_size: 256
-max_epochs: 900
+max_epochs: 5
 
 vqvae_args:
   vocab_size: 512
@@ -44,16 +44,16 @@ vqvae_args:
   quant_resi: 0.5
   share_quant_resi: 0
   default_qresi_counts: 0
-  v_patch_nums: [1, 2, 4, 8, 16]
+  v_patch_nums: [1, 2, 4, 8, 16, 32]
   in_channels: 1
   test_mode: True
   ch_mult: [1, 1, 2]
 
 var_args:
   embed_dim: 512
-  block_size: 31      # sum([1,2,4,8,16]) = 31
+  block_size: 63      # sum([1,2,4,8,16]) = 31
   num_layers: 1
   n_head: 8
   drop_out_rate: 0.0
   fc_rate: 4
-  patch_nums: [1, 2, 4, 8, 16]
+  patch_nums: [1, 2, 4, 8, 16, 32]

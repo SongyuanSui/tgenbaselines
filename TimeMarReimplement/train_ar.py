@@ -173,9 +173,9 @@ def sample_tokens(model, vqvae, num_samples, batch_size, L, device):
 
 
 def compute_context_fid(dataset, window_size, generated_np):
-    file_path = f"../output/samples/{dataset}_norm_truth_{window_size}_train.npy"
+    file_path = f"./output/samples/{dataset}_norm_truth_{window_size}_train.npy"
     if dataset == "Sines":
-        file_path = f"../output/samples/{dataset}_ground_truth_{window_size}_train.npy"
+        file_path = f"./output/samples/{dataset}_ground_truth_{window_size}_train.npy"
 
     gt = np.load(file_path)
     generated_np = generated_np[:gt.shape[0]]
