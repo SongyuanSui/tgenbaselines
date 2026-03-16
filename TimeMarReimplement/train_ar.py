@@ -275,7 +275,11 @@ def train_ar(
                 device=device,
             )
 
-            fid = compute_context_fid(dataset_name, window_size=24, generated_np=generated_np)
+            fid = compute_context_fid(
+                dataset_name,
+                window_size=config.dataloader.params.window,
+                generated_np=generated_np
+            )
             print(f"[Epoch {epoch}] Context-FID = {fid:.4f}")
 
             if fid < best_fid:
