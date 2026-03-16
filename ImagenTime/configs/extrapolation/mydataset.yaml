@@ -1,0 +1,41 @@
+# training:
+epochs: 5
+batch_size: 64
+learning_rate: 0.0001
+weight_decay: 0.00001
+
+task: extrapolation
+mask_rate: 0.5
+
+# data:
+dataset: mydataset
+root_path: ./data/mydataset/
+data_path: mydataset.npy
+label_len: 0
+seq_len: 128
+pred_len: 0
+features: M
+target: OT
+seasonal_patterns: Monthly
+freq: h
+
+# transform:
+use_stft: false
+delay: 3
+embedding: 32
+
+# model:
+img_resolution: 32
+input_channels: 1
+unet_channels: 64
+ch_mult: [1, 2]
+attn_resolution: [16, 8, 4]
+diffusion_steps: 18
+channel_mult_emb: 2
+num_blocks: 2
+dropout: 0.1
+ema: true
+ema_warmup: 100
+
+# logging:
+logging_iter: 10

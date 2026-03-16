@@ -40,7 +40,7 @@ def parse_args_uncond():
     # --- data ---:
     parser.add_argument('--dataset',
                         choices=['kdd_cup', 'traffic_hourly', 'solar_weekly', 'temperature_rain',
-                                 'nn5_daily', 'fred_md', 'sine', 'energy', 'mujoco', 'stocks'], help='training dataset')
+                                'nn5_daily', 'fred_md', 'sine', 'energy', 'mujoco', 'stocks', 'mydataset'], help='training dataset')
 
     parser.add_argument('--seq_len', type=int,
                         help='input sequence length,'
@@ -86,7 +86,7 @@ def parse_args_uncond():
         if k not in vars(parsed_args):
             setattr(parsed_args, k, v)
     # for short-term benchamark
-    if parsed_args.dataset in ['stock', 'sine', 'energy', 'mujoco']:
+    if parsed_args.dataset in ['stock', 'sine', 'energy', 'mujoco', 'mydataset']:
         parsed_args.input_size = parsed_args.input_channels
     return parsed_args
 
