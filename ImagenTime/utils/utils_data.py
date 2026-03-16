@@ -5,8 +5,15 @@ import sys
 import torch
 import torch.utils.data as Data
 
-from data.data_provider.data_factory import data_provider
-from data.long_range import parse_datasets
+try:
+    from data.data_provider.data_factory import data_provider
+except Exception:
+    data_provider = None
+
+try:
+    from data.long_range import parse_datasets
+except Exception:
+    parse_datasets = None
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 

@@ -10,7 +10,7 @@ seq_len: 128
 use_stft: false
 
 # transform:
-delay: 3
+delay: 4
 embedding: 32
 
 # model:
